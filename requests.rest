@@ -1,0 +1,8 @@
+### Get all (local)
+GET http://localhost:8080/contacts
+
+### Get one (local)
+GET http://localhost:8080/contacts/6a021681e7af8279068f4b2e
+
+### Get all (Render)
+GET https://your-app.onrender.com/contacts
