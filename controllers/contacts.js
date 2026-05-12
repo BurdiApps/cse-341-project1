@@ -1,6 +1,9 @@
+// Import MongoDB and DB Connection and
+// objectId from MongoDB from DB Connection
 const { ObjectId } = require('mongodb');
 const mongodb = require('../db/connect');
 
+// Get all Contacts Endpoint and returns JSON
 const getAll = async (req, res) => {
   try {
     const result = await mongodb.getDb().db('cse341').collection('contacts').find();
@@ -12,6 +15,7 @@ const getAll = async (req, res) => {
   }
 };
 
+// Get single Contact Endpoint and returns JSON
 const getSingle = async (req, res) => {
   try {
     if (!ObjectId.isValid(req.params.id)) {
@@ -28,4 +32,5 @@ const getSingle = async (req, res) => {
   }
 };
 
+// Exports endpoint logic so it can be used in routes
 module.exports = { getAll, getSingle };

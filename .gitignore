@@ -1,3 +1,5 @@
+// Ignore my important information!
+
 cd /Users/jamesburdick/School/cse341/contacts
 
 mkdir -p db controllers routes

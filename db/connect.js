@@ -1,3 +1,5 @@
+// Loads enviroment variables and sets up MongoDB connection
+
 const dotenv = require('dotenv');
 dotenv.config();
 const MongoClient = require('mongodb').MongoClient;
