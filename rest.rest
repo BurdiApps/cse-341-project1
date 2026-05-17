@@ -1,0 +1,35 @@
+### LOCAL — Get all
+GET http://localhost:8080/contacts
+
+### LOCAL — Get single
+GET http://localhost:8080/contacts/PUT_REAL_ID_HERE
+
+### LOCAL — Create
+POST http://localhost:8080/contacts HTTP/1.1
+Content-Type: application/json
+
+{
+  "firstName": "James",
+  "lastName": "Burdick",
+  "email": "james@example.com",
+  "favoriteColor": "blue",
+  "birthday": "1995-04-12"
+}
+
+### LOCAL — Update
+PUT http://localhost:8080/contacts/PUT_REAL_ID_HERE HTTP/1.1
+Content-Type: application/json
+
+{
+  "firstName": "James",
+  "lastName": "Burdick",
+  "email": "new@example.com",
+  "favoriteColor": "green",
+  "birthday": "1995-04-12"
+}
+
+### LOCAL — Delete
+DELETE http://localhost:8080/contacts/PUT_REAL_ID_HERE
+
+### PROD — Get all
+GET https://cse-341-project1-kvte.onrender.com/contacts

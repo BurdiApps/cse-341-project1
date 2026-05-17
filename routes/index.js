@@ -4,8 +4,9 @@
 const express = require('express');
 const router = express.Router();
 
-// route returns simple message 
-router.get('/', (req, res) => { res.send('Hello! This is the main router, no UI here.'); });
+// route returns simple message
+
+router.use('/', require('./swagger'));
 router.use('/contacts', require('./contacts'));
 
 module.exports = router;

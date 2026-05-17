@@ -6,8 +6,18 @@ const mongodb = require('./db/connect');
 const app = express();
 const port = process.env.PORT || 8080;
 
-app.use(express.json());
-app.use('/', require('./routes'));
+app
+  .use(express.json())
+  .use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader(
+      'Access-Control-Allow-Headers',
+      'Origin, X-Requested-With, Content-Type, Accept, Z-Key'
+    );
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+    next();
+  })
+  .use('/', require('./routes'));
 
 // The server will only start listening after 
 // the database connection is established
