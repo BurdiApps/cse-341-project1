@@ -5,10 +5,9 @@
     "description": "Contacts API for CSE 341",
     "version": "1.0.0"
   },
-  "host": "https://cse-341-project1-kvte.onrender.com",
+  "host": "cse-341-project1-kvte.onrender.com",
   "basePath": "/",
   "schemes": [
-    "http",
     "https"
   ],
   "paths": {
@@ -96,9 +95,6 @@
           "200": {
             "description": "OK"
           },
-          "400": {
-            "description": "Bad Request"
-          },
           "404": {
             "description": "Not Found"
           },
@@ -169,9 +165,6 @@
         "responses": {
           "200": {
             "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request"
           },
           "404": {
             "description": "Not Found"
