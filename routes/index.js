@@ -1,12 +1,11 @@
-// Setting up the main router
-// The /contacts route uses the routes defined in contacts.
-
+// filepath: /Users/jamesburdick/School/cse341/contacts/routes/index.js
 const express = require('express');
 const router = express.Router();
 
-// route returns simple message
+router.get('/', (req, res) => {
+  res.send('Hello World');
+});
 
-router.use('/', require('./swagger'));
 router.use('/contacts', require('./contacts'));
 
 module.exports = router;

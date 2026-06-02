@@ -1,8 +1,36 @@
+cse341/contacts/requests.rest
 ### Get all (local)
 GET http://localhost:8080/contacts
 
 ### Get one (local)
 GET http://localhost:8080/contacts/6a021681e7af8279068f4b2e
+
+### Create contact (local)
+POST http://localhost:8080/contacts
+Content-Type: application/json
+
+{
+  "firstName": "James",
+  "lastName": "Burdick",
+  "email": "james@example.com",
+  "favoriteColor": "blue",
+  "birthday": "2000-01-01"
+}
+
+### Update contact (local)
+PUT http://localhost:8080/contacts/6a021681e7af8279068f4b2e
+Content-Type: application/json
+
+{
+  "firstName": "James",
+  "lastName": "Burdick",
+  "email": "james_updated@example.com",
+  "favoriteColor": "green",
+  "birthday": "2000-01-01"
+}
+
+### Delete contact (local)
+DELETE http://localhost:8080/contacts/6a021681e7af8279068f4b2e
 
 ### Get all (Render)
 GET https://cse-341-project1-kvte.onrender.com/contacts
@@ -10,3 +38,29 @@ GET https://cse-341-project1-kvte.onrender.com/contacts
 ### Get one (Render)
 GET https://cse-341-project1-kvte.onrender.com/contacts/6a021681e7af8279068f4b2e
 
+### Create contact (Render)
+POST https://cse-341-project1-kvte.onrender.com/contacts
+Content-Type: application/json
+
+{
+  "firstName": "James",
+  "lastName": "Burdick",
+  "email": "james@example.com",
+  "favoriteColor": "blue",
+  "birthday": "2000-01-01"
+}
+
+### Update contact (Render)
+PUT https://cse-341-project1-kvte.onrender.com/contacts/6a021681e7af8279068f4b2e
+Content-Type: application/json
+
+{
+  "firstName": "James",
+  "lastName": "Burdick",
+  "email": "james_updated@example.com",
+  "favoriteColor": "green",
+  "birthday": "2000-01-01"
+}
+
+### Delete contact (Render)
+DELETE https://cse-341-project1-kvte.onrender.com/contacts/6a021681e7af8279068f4b2e
