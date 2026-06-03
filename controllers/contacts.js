@@ -33,13 +33,20 @@ const getSingle = async (req, res) => {
 // POST - create
 const createContact = async (req, res) => {
   try {
-    const contact = {
-      firstName: req.body.firstName,
-      lastName: req.body.lastName,
-      email: req.body.email,
-      favoriteColor: req.body.favoriteColor,
-      birthday: req.body.birthday
-    };
+    const { firstName, lastName, email, favoriteColor, birthday } = req.body;
+
+    // Validation
+    if (!firstName || !lastName || !email || !favoriteColor || !birthday) {
+      return res.status(400).json({ message: 'All fields are required: firstName, lastName, email, favoriteColor, birthday.' });
+    }
+    if (typeof firstName !== 'string' || typeof lastName !== 'string') {
+      return res.status(400).json({ message: 'firstName and lastName must be strings.' });
+    }
+    if (!email.includes('@')) {
+      return res.status(400).json({ message: 'Invalid email address.' });
+    }
+
+    const contact = { firstName, lastName, email, favoriteColor, birthday };
     const result = await mongodb.getDb().db('cse341').collection('contacts').insertOne(contact);
     if (result.acknowledged) {
       res.status(201).json(result);
@@ -57,14 +64,18 @@ const updateContact = async (req, res) => {
     if (!ObjectId.isValid(req.params.id)) {
       return res.status(400).json({ message: 'Invalid contact id.' });
     }
+    const { firstName, lastName, email, favoriteColor, birthday } = req.body;
+
+    // Validation
+    if (!firstName || !lastName || !email || !favoriteColor || !birthday) {
+      return res.status(400).json({ message: 'All fields are required: firstName, lastName, email, favoriteColor, birthday.' });
+    }
+    if (!email.includes('@')) {
+      return res.status(400).json({ message: 'Invalid email address.' });
+    }
+
     const userId = new ObjectId(req.params.id);
-    const contact = {
-      firstName: req.body.firstName,
-      lastName: req.body.lastName,
-      email: req.body.email,
-      favoriteColor: req.body.favoriteColor,
-      birthday: req.body.birthday
-    };
+    const contact = { firstName, lastName, email, favoriteColor, birthday };
     const result = await mongodb
       .getDb()
       .db('cse341')
